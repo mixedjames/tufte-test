@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+
+  <style>
+
+  @font-face {
+    font-family: "EB Garamond";
+    src: url("fonts/eb-garamond/EBGaramond-VariableFont_wght.ttf") format("ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    src: url("fonts/lato/Lato-Regular.ttf") format("ttf");
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    padding: 0;
+    margin: 0;
+    min-width: 400px;
+    height: 100%;
+    font-family: "EB Garamond", serif;
+  }
+
+  .main-viewport {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .main-viewport .content {
+    padding: 20px;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .main-viewport .content .title-page {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .main-viewport .content .title-page .header {
+    font-size: 16pt;
+    font-style: italic;
+    margin-bottom: 100pt;
+  }
+
+  .main-viewport .content .title-page .title {
+    font-size: 24pt;
+    margin-bottom: 15pt;
+  }
+
+  .main-viewport .content .title-page .subtitle {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .main-viewport .content .title-page .footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    font-size: 12pt;
+    font-style: italic;
+  }
+
+  .main-viewport .content .chapter {
+    height: 100vh;
+  }
+
+  .main-viewport .content .chapter .number {
+    padding-top: 100pt;
+    font-size: 18pt;
+    text-align: center;
+  }
+
+  .main-viewport .content .chapter .name {
+    font-size: 24pt;
+    text-align: center;
+  }
+
+  .main-viewport .content h1 {
+    font-size: 24pt;
+    font-weight: normal;
+  }
+
+  .main-viewport .content .new-idea {
+    font-variant: small-caps;
+  }
+
+  .main-viewport .content .note {
+    display: none;
+  }
+
+  @media screen and (min-width: 700px) {
+    .main-viewport .content .note {
+      display: inline-block;
+      float: right;
+      clear: right;
+      width: 200px;
+
+      font-size: 11pt;
+      margin: 0;
+      margin-top: 10px;
+    }
+
+    .main-viewport .content p {
+      padding-right: 240px;
+    }
+  }
+
+  .main-viewport .note-list {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+
+    background: white;
+  }
+
+  @media screen and (min-width: 700px) {
+    .main-viewport .note-list {
+      display: none;
+    }
+  }
+
+  .note-list .note {
+    border: solid black 1px;
+    margin: 5px;
+    padding: 5px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    display: none;
+  }
+
+  .note-list .note .content {
+    display: none;
+  }
+
+  .content .note-ref {
+    border-bottom: dashed 1px black;
+  }
+
+  .notes {
+    display: none;
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+  }
+
+  .showing-note .notes {
+    display: block;
+  }
+
+  body.showing-note {
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 700px) {
+    body.showing-note {
+      overflow: auto;
+    }
+
+    .showing-note .notes {
+      display: none;
+    }
+  }
+
+  .notes .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.2;
+  }
+
+  .notes .note {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+
+    max-height: 100%;
+    overflow: auto;
+
+    padding: 20px;
+    background: white;
+  }
+
+  .notes .note .close-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  </style>
+</head>
+<body class="/*showing-note*/">
+
+  <div class="main-viewport">
+    <div class="content">
+
+      <div class="title-page">
+        <div class="header">James Heggie</div>
+        <div class="title">Creating Tufte-inspired Web pages for desktop
+          and mobile</div>
+        <div class="subtitle">First Edition</div>
+        <div class="footer">Self-published in the UK</div>
+      </div>
+
+      <h1>Lorem ipsum dolor</h1>
+      <p><span class="new-idea">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Maecenas volutpat nisi vitae odio iaculis malesuada. Morbi id augue dictum, tempor risus vel, suscipit risus. Phasellus tincidunt nulla in lacus luctus, vel maximus urna aliquam. Fusce libero nibh, semper et tincidunt eget, maximus at orci. Sed vel tellus at erat venenatis egestas. Nulla suscipit feugiat metus, eget malesuada tellus faucibus sit amet. Nunc finibus efficitur nibh at auctor. Vestibulum volutpat, dolor eu cursus pulvinar, diam nunc tempus neque, in iaculis elit lacus quis nulla. Sed ac tempor orci. Nulla lobortis, quam id pharetra auctor, libero nunc gravida sapien, ac dictum purus sem a purus. Quisque vitae metus sed lacus ultricies ornare. Fusce vestibulum congue porttitor. Nam gravida nisl sem, vel ultrices odio iaculis eu.</p>
+      <p>Nunc gravida ullamcorper <b>lacus ut consequat</b>. Cras et enim placerat, lobortis urna sit amet, feugiat massa. Fusce accumsan tortor a vehicula rutrum. Nunc id sagittis nisi. Nam lectus lectus, vehicula in tellus quis, ultrices ornare metus. Quisque dignissim ullamcorper dolor, ut imperdiet orci ullamcorper eget. Vestibulum vestibulum sollicitudin mollis. Quisque magna eros, consectetur ut scelerisque in, lobortis vel ligula. Morbi at egestas turpis, ut efficitur massa. Nulla sed justo luctus, tempor velit eu, consectetur est. Curabitur non ullamcorper libero. Nullam vitae nibh vitae erat consectetur suscipit. Sed pharetra tellus dui. Vestibulum ac eleifend orci. Nam ac eros vel nunc fringilla cursus nec rhoncus metus. Vivamus quis nulla pretium, condimentum orci a, consequat enim.</p>
+      <p>Nullam a eros at lorem gravida condimentum id bibendum diam. Nam varius auctor tellus scelerisque aliquam. Nullam mollis cursus elit et vehicula. Nunc mauris mauris, elementum ac convallis ac, hendrerit id tortor. In sapien nisi, posuere et gravida eu, dignissim eget tellus. Donec facilisis facilisis leo, eu laoreet nibh sodales condimentum. Nulla sed volutpat ligula, a dignissim neque. Mauris a feugiat leo. Cras in suscipit lorem, a luctus neque. Sed ac tempus orci, vel bibendum urna. Etiam accumsan turpis nibh. Suspendisse commodo tellus vitae orci lacinia interdum. Nam id purus tortor. Donec interdum molestie urna quis egestas. Vestibulum vel tortor ultrices, auctor turpis eu, rutrum nibh.</p>
+
+      <figure>
+        <table>
+          <tr><th>Col 1</th><th>Col 2</th></tr>
+        </table>
+        <figcaption>A caption</figcaption>
+      </figure>
+
+      <div class="chapter">
+        <div class="number">Part 2</div>
+        <div class="name">Integer imperdiet congue vestibulum</div>
+      </div>
+
+      <p><span class="note-ref" note="fig-1">Integer imperdiet congue vestibulum</span>. Morbi sapien metus, maximus eget fermentum nec, pellentesque consequat odio. Vivamus vel orci dignissim, ornare mi at, tristique dui. Nullam at tellus tempus, sagittis sem non, aliquam dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam porttitor nulla sit amet nunc placerat, sed elementum magna euismod. Integer dapibus pulvinar dui, ac ornare odio tincidunt tempus. Vestibulum massa leo, pretium non orci ultricies, viverra tristique enim. Fusce euismod efficitur enim eu scelerisque. Fusce feugiat augue ipsum. Maecenas porta ipsum in quam aliquam facilisis. Etiam sed tincidunt nunc. Donec in enim ut felis placerat cursus.</p>
+      <p><span class="note-ref" note="note-1">Sed non nulla dictum</span>, ultricies lectus vel, consectetur nisl. Integer consectetur erat nec augue tristique, vitae faucibus urna aliquam. Praesent ultrices enim non augue euismod, sed vehicula magna gravida. Integer nec pulvinar risus, sed viverra sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut nunc scelerisque, congue elit id, fringilla velit. Vestibulum malesuada augue non lectus auctor mollis sit amet ac odio. Cras aliquet enim vitae tortor rhoncus accumsan.</p>
+    </div>
+
+    <div class="note-list">
+      <div class="note fig-1">
+        <div class="title">Figure 1: This is a note item which is quite long and will hopefully overflow needing ellipsis</div>
+        <div class="content"><h6>Figure 1:</h6><b>This is a note item</b> which is quite long and will hopefully overflow needing ellipsis</div>
+      </div>
+
+      <div class="note note-1">
+        <div class="title">Note 1: A note!!!</div>
+        <div class="content">Note 1: A note!!!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="background"></div>
+
+    <div class="note">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas volutpat nisi vitae odio iaculis malesuada. Morbi id augue dictum, tempor risus vel, suscipit risus. Phasellus tincidunt nulla in lacus luctus, vel maximus urna aliquam. Fusce libero nibh, semper et tincidunt eget, maximus at orci. Sed vel tellus at erat venenatis egestas. Nulla suscipit feugiat metus, eget malesuada tellus faucibus sit amet. Nunc finibus efficitur nibh at auctor. Vestibulum volutpat, dolor eu cursus pulvinar, diam nunc tempus neque, in iaculis elit lacus quis nulla. Sed ac tempor orci. Nulla lobortis, quam id pharetra auctor, libero nunc gravida sapien, ac dictum purus sem a purus. Quisque vitae metus sed lacus ultricies ornare. Fusce vestibulum congue porttitor. Nam gravida nisl sem, vel ultrices odio iaculis eu.</p>
+    <p>Nunc gravida ullamcorper lacus ut consequat. Cras et enim placerat, lobortis urna sit amet, feugiat massa. Fusce accumsan tortor a vehicula rutrum. Nunc id sagittis nisi. Nam lectus lectus, vehicula in tellus quis, ultrices ornare metus. Quisque dignissim ullamcorper dolor, ut imperdiet orci ullamcorper eget. Vestibulum vestibulum sollicitudin mollis. Quisque magna eros, consectetur ut scelerisque in, lobortis vel ligula. Morbi at egestas turpis, ut efficitur massa. Nulla sed justo luctus, tempor velit eu, consectetur est. Curabitur non ullamcorper libero. Nullam vitae nibh vitae erat consectetur suscipit. Sed pharetra tellus dui. Vestibulum ac eleifend orci. Nam ac eros vel nunc fringilla cursus nec rhoncus metus. Vivamus quis nulla pretium, condimentum orci a, consequat enim.</p>
+    </div>
+
+  </div>
+
+  <script src="lib/requirejs/require.js" data-main="js/bootstrap.js"></script>
+</body>
+</html>
