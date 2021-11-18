@@ -21,11 +21,20 @@ requirejs(['gsap', 'gsap.ScrollTrigger'], function(Greensock, ScrollTriggerNS) {
   document.querySelectorAll('.content .note-ref').forEach((note) => {
 
     const noteName = note.attributes.getNamedItem('note').value;
-    const newNoteNode = document.querySelector('.main-viewport .note-list .'+noteName+' .content').cloneNode(true);
-
-    newNoteNode.className = 'note';
 
     const noteLocation = note.closest('.content > *');
+    const newNoteNode = document.createElement('div');
+    const newNoteMarker = document.createElement('div');
+    const newNoteContent = document.querySelector('.main-viewport .note-list .'+noteName+' .content').cloneNode(true);
+
+    newNoteMarker.className = 'marker';
+    newNoteNode.className = 'note';
+
+    newNoteMarker.innerText = '[Note]';
+
+    newNoteNode.appendChild(newNoteMarker);
+    newNoteNode.appendChild(newNoteContent);
+
     noteLocation.parentNode.insertBefore(newNoteNode, noteLocation);
 
     ScrollTrigger.create({
@@ -70,12 +79,12 @@ requirejs(['gsap', 'gsap.ScrollTrigger'], function(Greensock, ScrollTriggerNS) {
 
   function ShowNote(e) {
     const id = e.attributes.getNamedItem('note').value;
-    document.querySelector('.main-viewport .note-list .'+id).style.display = 'block';
+    document.querySelector('.main-viewport .note-list .'+id+' .title').style.display = 'block';
   }
 
   function HideNote(e) {
     const id = e.attributes.getNamedItem('note').value;
-    document.querySelector('.main-viewport .note-list .'+id).style.display = 'none';
+    document.querySelector('.main-viewport .note-list .'+id+' .title').style.display = 'none';
   }
 
 });

@@ -92,24 +92,49 @@
     font-weight: normal;
   }
 
+  .main-viewport .content p {
+    padding-left: 40px;
+  }
+
   .main-viewport .content .new-idea {
     font-variant: small-caps;
   }
 
   .main-viewport .content .note {
+    display: inline-block;
+    float: left;
+    clear: right;
+  }
+
+  .main-viewport .content .note .marker {
+    display: block;
+
+    transform: rotate(-90deg);
+    transform-origin: center bottom;
+  }
+
+  .main-viewport .content .note .content {
     display: none;
   }
 
   @media screen and (min-width: 700px) {
     .main-viewport .content .note {
-      display: inline-block;
       float: right;
       clear: right;
       width: 200px;
 
       font-size: 11pt;
       margin: 0;
-      margin-top: 10px;
+      margin-top: 0px;
+    }
+
+    .main-viewport .content .note .marker {
+      display: none;
+    }
+
+    .main-viewport .content .note .content {
+      display: block;
+      margin: 0; padding: 0;
     }
 
     .main-viewport .content p {
@@ -133,6 +158,9 @@
   }
 
   .note-list .note {
+  }
+
+  .note-list .note .title {
     border: solid black 1px;
     margin: 5px;
     padding: 5px;
