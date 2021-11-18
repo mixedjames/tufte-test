@@ -30,7 +30,7 @@ requirejs(['gsap', 'gsap.ScrollTrigger'], function(Greensock, ScrollTriggerNS) {
     newNoteMarker.className = 'marker';
     newNoteNode.className = 'note';
 
-    newNoteMarker.innerText = '[Note]';
+    newNoteMarker.innerText = 'N';
 
     newNoteNode.appendChild(newNoteMarker);
     newNoteNode.appendChild(newNoteContent);
